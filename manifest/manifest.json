@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.7/MicrosoftTeams.schema.json",
   "manifestVersion": "devPreview",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "id": "32cdab16-7c7c-40bc-94ac-c764e91d85a6",
   "packageName": "com.jianw22.teams.videopp",
   "developer": {
@@ -48,12 +48,12 @@
     "filters": [
       {
         "id": "c2cf81fd-a1c0-4742-b41a-ef969b3ed490",
-        "name": "half",
+        "name": "Style_half",
         "thumbnail": "half.png"
       },
       {
         "id": "b0c8896c-7be8-4645-ae02-a8bc9b0355e5",
-        "name": "gray scale",
+        "name": "Style_gray scale",
         "thumbnail": "gray.png"
       }
     ],
