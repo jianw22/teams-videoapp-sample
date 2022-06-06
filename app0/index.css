@@ -37,12 +37,6 @@
   background: url(./img/gray.png);
 }
 
-#filter-dimmergl > a {
-  width: 74px;
-  height: 42px;
-  background: url(./img/dimmergl.png);
-}
-
 .app-title {
   color: #ffffff;
 }

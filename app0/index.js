@@ -12,7 +12,6 @@ let appliedEffect = {
 let effectIds = {
   half: "c2cf81fd-a1c0-4742-b41a-ef969b3ed490",
   gray: "b0c8896c-7be8-4645-ae02-a8bc9b0355e5",
-  dimmergl: "1f54f360-2ca0-49b5-8c4c-e81e593db53f",
 }
 
 // This is the effect linked with UI
@@ -34,9 +33,6 @@ function simpleHalfEffect(videoFrame) {
 let canvas = new OffscreenCanvas(480,360);
 let videoFilter = new WebglVideoFilter(canvas);
 videoFilter.init();
-let dimmerglFilter = new DimmerglFilter();
-dimmerglFilter.init();
-
 //Sample video effect
 function videoFrameHandler(videoFrame, notifyVideoProcessed, notifyError) {
   switch (selectedEffectId) {
@@ -45,9 +41,6 @@ function videoFrameHandler(videoFrame, notifyVideoProcessed, notifyError) {
       break;
     case effectIds.gray:
       videoFilter.processVideoFrame(videoFrame);
-      break;
-    case effectIds.dimmergl:
-      dimmerglFilter.processVideoFrame(videoFrame);
       break;
     default:
       break;
@@ -65,7 +58,6 @@ function videoFrameHandler(videoFrame, notifyVideoProcessed, notifyError) {
 function clearSelect() {
   document.getElementById("filter-half").classList.remove("selected");
   document.getElementById("filter-gray").classList.remove("selected");
-  document.getElementById("filter-dimmergl").classList.remove("selected");
 }
 
 function effectParameterChanged(effectId) {
@@ -85,10 +77,6 @@ function effectParameterChanged(effectId) {
     case effectIds.gray:
       console.log('current effect: gray');
       document.getElementById("filter-gray").classList.add("selected");
-      break;
-    case effectIds.dimmergl:
-      console.log('current effect: dimmergl');
-      document.getElementById("filter-dimmergl").classList.add("selected");
       break;
     default:
       console.log('effect cleared');
@@ -116,12 +104,4 @@ filterGray.addEventListener("click", function () {
     return;
   }
   microsoftTeams.video.notifySelectedVideoEffectChanged("EffectChanged", effectIds.gray);
-});
-
-const filterDimmergl = document.getElementById("filter-dimmergl");
-filterDimmergl.addEventListener("click", function () {
-  if (selectedEffectId === effectIds.dimmergl) {
-    return;
-  }
-  microsoftTeams.video.notifySelectedVideoEffectChanged("EffectChanged", effectIds.dimmergl);
 });
