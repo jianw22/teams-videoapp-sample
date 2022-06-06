@@ -38,10 +38,11 @@ class WebglVideoFilter {
     }
 
     _op_scale_gl(gl, srcBytes, scale, dstBytes) {
-        const positionLoc = gl.getAttribLocation(_program, 'position');
-        const srcTexLoc = gl.getUniformLocation(_program, 'srcTex');
-        const srcDimensionsLoc = gl.getUniformLocation(_program, 'srcDimensions');
-        const u_scale = gl.getUniformLocation(_program, 'u_scale');
+        let program = this._program;
+        const positionLoc = gl.getAttribLocation(program, 'position');
+        const srcTexLoc = gl.getUniformLocation(program, 'srcTex');
+        const srcDimensionsLoc = gl.getUniformLocation(program, 'srcDimensions');
+        const u_scale = gl.getUniformLocation(program, 'u_scale');
 
         // setup a full canvas clip space quad
         const buffer = gl.createBuffer();
@@ -68,8 +69,8 @@ class WebglVideoFilter {
         );
 
         // create our source texture
-        const srcWidth = _w;
-        const srcHeight = _h;
+        const srcWidth = this._w;
+        const srcHeight = this._h;
         const tex = gl.createTexture();
         gl.bindTexture(gl.TEXTURE_2D, tex);
         gl.pixelStorei(gl.UNPACK_ALIGNMENT, 1); // see https://webglfundamentals.org/webgl/lessons/webgl-data-textures.html
@@ -96,8 +97,8 @@ class WebglVideoFilter {
         gl.drawArrays(gl.TRIANGLES, 0, 6); // draw 2 triangles (6 vertices)
 
         // get the result
-        const dstWidth = _w;
-        const dstHeight = _h;
+        const dstWidth = this._w;
+        const dstHeight = this._h;
         const results = new Uint8Array(dstWidth * dstHeight * 4);
         gl.readPixels(0, 0, dstWidth, dstHeight, gl.RGBA, gl.UNSIGNED_BYTE, results);
         // await readPixelsAsync(gl, 0, 0, dstWidth, dstHeight, gl.RGBA, gl.UNSIGNED_BYTE, results);
