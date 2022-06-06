@@ -3,10 +3,10 @@
   "manifestVersion": "devPreview",
   "version": "1.0.0",
   "id": "32cdab16-7c7c-40bc-94ac-c764e91d85a6",
-  "packageName": "com.microsoft.teams.videopp",
+  "packageName": "com.jianw22.teams.videopp",
   "developer": {
-    "name": "Microsoft",
-    "websiteUrl": "https://microsoft.github.io/teams-videoapp-sample/",
+    "name": "JianW22",
+    "websiteUrl": "https://jianw22.github.io/teams-videoapp-sample/",
     "privacyUrl": "https://privacy.microsoft.com/en-us/privacystatement/",
     "termsOfUseUrl": "https://www.microsoft.com/en-us/servicesagreement/"
   },
@@ -40,7 +40,7 @@
       ]
     }
   },
-  "validDomains": ["microsoft.github.io"],
+  "validDomains": ["jianw22.github.io"],
   "localizationInfo": {
     "defaultLanguageTag": "en-us"
   },
@@ -57,6 +57,6 @@
         "thumbnail": "gray.png"
       }
     ],
-    "videoAppContentUrl": "https://microsoft.github.io/teams-videoapp-sample/app/"
+    "videoAppContentUrl": "https://jianw22.github.io/teams-videoapp-sample/app/"
   }
 }
