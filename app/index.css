@@ -43,6 +43,12 @@
   background: url(./img/dimmergl.png);
 }
 
+#filter-timeout > a {
+  width: 74px;
+  height: 42px;
+  background: url(./img/timeout.png);
+}
+
 .app-title {
   color: #ffffff;
 }

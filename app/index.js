@@ -12,7 +12,8 @@ let appliedEffect = {
 let effectIds = {
   half: "c2cf81fd-a1c0-4742-b41a-ef969b3ed490",
   gray: "b0c8896c-7be8-4645-ae02-a8bc9b0355e5",
-  dimmergl: "1f54f360-2ca0-49b5-8c4c-e81e593db53f",
+  dimmergl: "1f54f360-1111-49b5-8c4c-e81e593db53f",
+  timeout: "1f54f360-9999-49b5-8c4c-e81e593db53f",
 }
 
 // This is the effect linked with UI
@@ -49,6 +50,8 @@ function videoFrameHandler(videoFrame, notifyVideoProcessed, notifyError) {
     case effectIds.dimmergl:
       dimmerglFilter.processVideoFrame(videoFrame);
       break;
+    case effectIds.timeout:
+      return; // no process
     default:
       break;
   }
@@ -66,6 +69,7 @@ function clearSelect() {
   document.getElementById("filter-half").classList.remove("selected");
   document.getElementById("filter-gray").classList.remove("selected");
   document.getElementById("filter-dimmergl").classList.remove("selected");
+  document.getElementById("filter-timeout").classList.remove("selected");
 }
 
 function effectParameterChanged(effectId) {
@@ -89,6 +93,10 @@ function effectParameterChanged(effectId) {
     case effectIds.dimmergl:
       console.log('current effect: dimmergl');
       document.getElementById("filter-dimmergl").classList.add("selected");
+      break;
+    case effectIds.timeout:
+      console.log('current effect: timeout');
+      document.getElementById("filter-timeout").classList.add("selected");
       break;
     default:
       console.log('effect cleared');
@@ -124,4 +132,12 @@ filterDimmergl.addEventListener("click", function () {
     return;
   }
   microsoftTeams.video.notifySelectedVideoEffectChanged("EffectChanged", effectIds.dimmergl);
+});
+
+const filterTimeout = document.getElementById("filter-timeout");
+filterTimeout.addEventListener("click", function () {
+  if (selectedEffectId === effectIds.timeout) {
+    return;
+  }
+  microsoftTeams.video.notifySelectedVideoEffectChanged("EffectChanged", effectIds.timeout);
 });

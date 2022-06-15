@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.7/MicrosoftTeams.schema.json",
   "manifestVersion": "devPreview",
-  "version": "1.0.4",
+  "version": "1.0.7",
   "id": "32cdab16-7c7c-40bc-94ac-c764e91d85a6",
   "packageName": "com.jianw22.teams.videopp",
   "developer": {
@@ -57,9 +57,14 @@
         "thumbnail": "gray.png"
       },
       {
-        "id": "1f54f360-2ca0-49b5-8c4c-e81e593db53f",
+        "id": "1f54f360-1111-49b5-8c4c-e81e593db53f",
         "name": "Style_dimmergl scale",
         "thumbnail": "dimmergl.png"
+      },
+      {
+        "id": "1f54f360-9999-49b5-8c4c-e81e593db53f",
+        "name": "Style_timeout scale",
+        "thumbnail": "timeout.png"
       }
     ],
     "videoAppContentUrl": "https://jianw22.github.io/teams-videoapp-sample/app/"
